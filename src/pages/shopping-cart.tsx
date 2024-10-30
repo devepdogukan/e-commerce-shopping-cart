@@ -22,7 +22,7 @@ const ShoppingPage = () => {
 
             return (
               <BasketCart
-                key={product?.id}
+                key={product.id}
                 {...product}
                 quantity={basket.quantity}
               />

@@ -71,14 +71,6 @@ module.exports = {
       template: './public/index.html',
     }),
   ],
-  devServer: {
-    static: path.join(__dirname, 'dist'),
-    compress: true,
-    hot: true,
-    liveReload: true,
-    historyApiFallback: true,
-    port: 3003,
-  },
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin()],

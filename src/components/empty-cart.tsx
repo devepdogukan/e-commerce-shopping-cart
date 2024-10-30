@@ -1,8 +1,9 @@
-import React from 'react'
-
 const EmptyCart = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-40 bg-gray-100 rounded-lg mt-4">
+    <div
+      data-testid="empty-cart"
+      className="flex flex-col items-center justify-center h-40 bg-gray-100 rounded-lg mt-4"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-12 w-12 text-gray-400"

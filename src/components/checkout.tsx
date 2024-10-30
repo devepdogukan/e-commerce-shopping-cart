@@ -1,7 +1,19 @@
 import useAppSelector from '~/utils/use-app-selector'
 import withActions, { IWithActions } from '~/utils/with-actions'
-import { nanoid } from 'nanoid'
 import navigate from '~/utils/navigate'
+
+function generateId(size = 21) {
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  let id = ''
+
+  for (let i = 0; i < size; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length)
+    id += characters[randomIndex]
+  }
+
+  return id
+}
 
 const Checkout = ({ actions, dispatch }: IWithActions) => {
   const list = useAppSelector((state) => state.basket.list)
@@ -11,11 +23,11 @@ const Checkout = ({ actions, dispatch }: IWithActions) => {
 
   const totalPrice = list.reduce((acc, cur) => {
     const price = basketItem.find((bi) => bi.id === cur.id)?.price ?? 0
-    return acc + (isNaN(price) ? 0 : price * cur.quantity)
+    return acc + price * cur.quantity
   }, 0)
 
   return (
-    <div>
+    <div data-testid="checkout-wrapper">
       <div className="flex justify-between text-lg font-semibold text-gray-800 ">
         <span>Total</span>
         <span>${totalPrice.toFixed(2)}</span>
@@ -44,7 +56,7 @@ const Checkout = ({ actions, dispatch }: IWithActions) => {
 
           dispatch!(
             actions!.order.addOrder({
-              orderId: nanoid(),
+              orderId: generateId(),
               items: mappedBasketItems,
               date: new Date().toISOString(),
               totalPrice: totalPrice,
