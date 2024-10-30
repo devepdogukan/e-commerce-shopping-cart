@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react'
-import renderWithRedux from '~/mocks/redux' // renderWithRedux fonksiyonunuzu import edin
+import renderWithRedux from '~/mocks/redux'
 import BasketCart from '~/components/basket-cart'
 import { IProduct } from '~/types/store'
 import { basketMockActions } from '~/mocks/container/actions'

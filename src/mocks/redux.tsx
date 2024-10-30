@@ -2,7 +2,7 @@ import { act, render, RenderResult } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureStore, { MockStoreEnhanced } from 'redux-mock-store'
 import { ContainerStore } from '~/types/store'
-import { thunk } from 'redux-thunk' // Doğru bir şekilde thunk'ı içe aktarın
+import { thunk } from 'redux-thunk'
 
 const mockStore = configureStore<Partial<ContainerStore>, unknown>([
   thunk as never,

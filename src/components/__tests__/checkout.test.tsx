@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react'
-import renderWithRedux from '~/mocks/redux' // renderWithRedux fonksiyonunuzu import edin
+import renderWithRedux from '~/mocks/redux'
 import Checkout from '~/components/checkout'
 import navigate from '~/utils/navigate'
 import { ContainerStore } from '~/types/store'
